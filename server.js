@@ -16,6 +16,6 @@ http.createServer(app).listen(config.port, function(){
   console.log('Express server running on port ' + config.port);
 });
 
-db.connectDB('mongodb://localhost/mean').then(function() {
+db.connectDB('mongodb://localhost/products').then(function() {
   console.log('alt db opened');
 })

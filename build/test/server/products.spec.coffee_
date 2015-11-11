@@ -9,7 +9,7 @@ describe 'get data', ->
 	product = undefined
 	products = undefined
 	before (done) ->
-		db.connectDB('mongodb://root:ll0614@ds033439.mongolab.com:33439/mean')
+		db.connectDB('mongodb://localhost/mean')
 		.then productsData.findProducts
 		.then (data) ->
 			products = data
