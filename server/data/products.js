@@ -9,7 +9,7 @@ exports.findProducts = function(query) {
 };
 
 exports.findProductById = function() {
-  return promise.cast(mongoose.model('Product').findById('550412224d0bd18c25c563a7').exec());
+  return promise.cast(mongoose.model('Product').findById('5642f098513b550868224b36').exec());
 };
 
 exports.findProductByTitle = function() {
