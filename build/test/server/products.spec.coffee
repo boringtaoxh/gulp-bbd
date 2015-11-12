@@ -1,13 +1,12 @@
 expect = require('chai').expect
-promise = require 'bluebird'
 mongoose = require 'mongoose'
 db = require '../../server/config/db'
 Product = require '../../server/models/product'
 productsData = require '../../server/data/products'
 
 describe 'get data', ->
-  product = undefined
-  products = undefined
+  product = []
+  products = {}
   before (done) ->
     db.connectDB('mongodb://localhost/products')
     .then productsData.findProducts

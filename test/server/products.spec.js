@@ -1,8 +1,6 @@
-var Product, db, expect, mongoose, productsData, promise;
+var Product, db, expect, mongoose, productsData;
 
 expect = require('chai').expect;
-
-promise = require('bluebird');
 
 mongoose = require('mongoose');
 
@@ -14,8 +12,8 @@ productsData = require('../../server/data/products');
 
 describe('get data', function() {
   var product, products;
-  product = void 0;
-  products = void 0;
+  product = [];
+  products = {};
   before(function(done) {
     db.connectDB('mongodb://localhost/products').then(productsData.findProducts).then(function(data) {
       products = data;

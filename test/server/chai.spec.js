@@ -38,18 +38,18 @@ isEven = function(num) {
 
 describe('num even test', function() {
   it('should return true even when num is even', function() {
-    return isEven(4).should.be["true"];
+    isEven(4).should.be["true"];
   });
   return it('should return false even when num is not even', function() {
-    return expect(isEven(5)).to.be["false"];
+    expect(isEven(5)).to.be["false"];
   });
 });
 
 describe('num even test', function() {
   it('should return true even when num is even', function() {
-    return isEven(4).should.be["true"];
+    isEven(4).should.be["true"];
   });
   return it('should return false even when num is not even', function() {
-    return expect(isEven(5)).to.be["false"];
+    expect(isEven(5)).to.be["false"];
   });
 });
