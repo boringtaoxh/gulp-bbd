@@ -4,11 +4,11 @@ mongoose = require('mongoose');
 
 Product = mongoose.model('Product');
 
-productsData = require('../data/products');
+productsData = require('../services/products');
 
 module.exports = function(app) {
   app.get('/api/products', function(req, res) {
-    mongoose.model('Product').find({}).exec(function(error, collection) {
+    productsData.findProducts().then(function(collection) {
       return res.send(collection);
     });
   });

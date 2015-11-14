@@ -10,5 +10,8 @@ exports.findProductById = ->
 exports.findProductByTitle = ->
 	promise.resolve(mongoose.model('Product').findOne({'title': 'C# for Sociopaths'}).exec())
 
+exports.saveProduct = (product) ->
+	promise.resolve(mongoose.model('Product').create(product))
+
 exports.likeTotal = (product) ->
 	product['liked'].length

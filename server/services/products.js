@@ -18,6 +18,10 @@ exports.findProductByTitle = function() {
   }).exec());
 };
 
+exports.saveProduct = function(product) {
+  return promise.resolve(mongoose.model('Product').create(product));
+};
+
 exports.likeTotal = function(product) {
   return product['liked'].length;
 };

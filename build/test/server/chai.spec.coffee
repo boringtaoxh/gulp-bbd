@@ -4,7 +4,6 @@ chai = require 'chai'
 sinon = require 'sinon'
 expect = chai.expect
 
-
 describe 'sinon test', ->
   product = {}
 
@@ -26,13 +25,6 @@ chai.should()
 isEven = (num) ->
   num % 2 == 0
 
-describe 'num even test', ->
-  it 'should return true even when num is even', ->
-    isEven(4).should.be.true
-    return
-  it 'should return false even when num is not even', ->
-    expect(isEven(5)).to.be.false
-    return
 describe 'num even test', ->
   it 'should return true even when num is even', ->
     isEven(4).should.be.true

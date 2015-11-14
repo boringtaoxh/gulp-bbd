@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['mocha', 'chai'],
 
 
     // list of files / patterns to load in the browser
@@ -18,9 +18,6 @@ module.exports = function(config) {
       'vendor/angular/angular.js',
       'vendor/angular-resource/angular-resource.js',
       'vendor/angular-mocks/angular-mocks.js',
-      'vendor/sinonjs/sinon.js',
-      'vendor/jasmine/lib/jasmine-core.js',
-      'vendor/jasmine-sinon/lib/jasmine-sinon.js',
       'test/app-init.js',
       'public/app/**/*.js',
       'test/public/**/*.js'

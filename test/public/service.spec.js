@@ -1,7 +1,7 @@
 'use strict';
 describe('service', function() {
   beforeEach(module('app'));
-  return it('should return data', inject(function(services) {
+  return it('should return services', inject(function(services) {
     var data;
     data = services.data();
     expect(data.length).to.be.equal(2);

@@ -8,4 +8,9 @@ module.exports = function(db, app) {
     db.saveProduct(req.body);
     res.end();
   });
+  app.get('/api/products', function(req, res) {
+    db.findProducts().then(function(collection) {
+      return res.send(collection);
+    });
+  });
 };

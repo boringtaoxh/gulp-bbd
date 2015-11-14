@@ -5,10 +5,13 @@ request = require('supertest')
 
 dataSavedProduct = undefined
 db = {
+  findProducts: ->
+    return new Promise (resolve, reject) ->
+      resolve ['hi']
   saveProduct: (product) ->
     dataSavedProduct = product
 }
-productsService = require('../../server/data/products-service')(db, app)
+productsService = require('../../server/services/products-service')(db, app)
 
 newProduct = {
   'title': 'C# for Sociopaths' 
@@ -17,10 +20,23 @@ newProduct = {
   'liked': [1,3]
 }
 
-describe 'save data', ->
+describe 'save services', ->
   it 'should pass the job to the database save', (done) ->
     request(app).post('/api/products').send(newProduct).end (err, res) -> 
       expect(dataSavedProduct).to.deep.equal(newProduct)
+      done()
+      return
+    return
+  return
+
+
+describe 'get services', ->
+  it 'should send me a json list of products', (done)->
+    mongoose = require 'mongoose'
+    request(app).get('/api/products')
+    .expect('Content-type', /json/)
+    .end (err, res) ->
+      expect(res.body).to.be.a('Array')
       done()
       return
     return

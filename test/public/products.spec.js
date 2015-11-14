@@ -8,7 +8,7 @@ describe('posting jobs', function() {
     'published': '2013-10-04T23:00:00.000Z',
     'liked': [1, 3]
   };
-  it('should call /api/jobs with job data', inject(function($httpBackend, products) {
+  it('should call /api/jobs with job services', inject(function($httpBackend, products) {
     $httpBackend.whenPOST('/api/products', function(data) {
       postRequestProduct = JSON.parse(data);
       expect(postRequestProduct).to.not.be.empty;

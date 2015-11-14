@@ -6,4 +6,9 @@ module.exports = (db, app) ->
     db.saveProduct(req.body)
     res.end()
     return
+  app.get '/api/products', (req, res) ->
+    db.findProducts().then (collection) ->
+      res.send collection
+    return
   return
+

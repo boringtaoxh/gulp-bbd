@@ -1,11 +1,11 @@
 mongoose = require 'mongoose'
 Product = mongoose.model 'Product'
-productsData = require('../data/products')
+productsData = require('../services/products')
 
 module.exports = (app) ->
   app.get '/api/products', (req, res) ->
-  	mongoose.model('Product').find({}).exec (error, collection) ->
-    	res.send collection
+    productsData.findProducts().then (collection) ->
+      res.send collection
     return
   app.get '*', (req, res) ->
     res.render 'layout'

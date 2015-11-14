@@ -2,9 +2,9 @@ expect = require('chai').expect
 mongoose = require 'mongoose'
 db = require '../../server/config/db'
 Product = require '../../server/models/product'
-productsData = require '../../server/data/products'
+productsData = require '../../server/services/products'
 
-describe 'get data', ->
+describe 'get database', ->
   product = []
   products = {}
   before (done) ->
@@ -19,6 +19,8 @@ describe 'get data', ->
       done()
       return
     return
+  after ->
+    mongoose.connection.close()
   it 'should never be empty', ->
     expect(products.length).to.be.at.least(1)
     return
@@ -34,5 +36,30 @@ describe 'get data', ->
   it 'should show like total', ->
     likeTotalCount = productsData.likeTotal(product)
     expect(likeTotalCount).equal(2)
+    return
+  return
+
+describe 'save database', ->
+  product = {
+    'title': 'C#### for Sociopaths'
+    'designer': 1
+    'published': '2013-10-04T23:00:00.000Z'
+    'liked': [1,3]
+  }
+  products = {}
+
+  before (done) ->
+    db.connectDB('mongodb://localhost/products')
+    .then productsData.saveProduct(product)
+    .then productsData.findProducts
+    .then (data) ->
+      products = data
+      done()
+      return
+    return
+  after ->
+    mongoose.connection.close()
+  it 'should never be empty', ->
+    expect(products.length).to.be.at.least(1)
     return
   return

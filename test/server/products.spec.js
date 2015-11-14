@@ -8,9 +8,9 @@ db = require('../../server/config/db');
 
 Product = require('../../server/models/product');
 
-productsData = require('../../server/data/products');
+productsData = require('../../server/services/products');
 
-describe('get data', function() {
+describe('get database', function() {
   var product, products;
   product = [];
   products = {};
@@ -21,6 +21,9 @@ describe('get data', function() {
       product = data;
       done();
     });
+  });
+  after(function() {
+    return mongoose.connection.close();
   });
   it('should never be empty', function() {
     expect(products.length).to.be.at.least(1);
@@ -38,5 +41,28 @@ describe('get data', function() {
     var likeTotalCount;
     likeTotalCount = productsData.likeTotal(product);
     expect(likeTotalCount).equal(2);
+  });
+});
+
+describe('save database', function() {
+  var product, products;
+  product = {
+    'title': 'C#### for Sociopaths',
+    'designer': 1,
+    'published': '2013-10-04T23:00:00.000Z',
+    'liked': [1, 3]
+  };
+  products = {};
+  before(function(done) {
+    db.connectDB('mongodb://localhost/products').then(productsData.saveProduct(product)).then(productsData.findProducts).then(function(data) {
+      products = data;
+      done();
+    });
+  });
+  after(function() {
+    return mongoose.connection.close();
+  });
+  it('should never be empty', function() {
+    expect(products.length).to.be.at.least(1);
   });
 });

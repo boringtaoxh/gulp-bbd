@@ -44,12 +44,3 @@ describe('num even test', function() {
     expect(isEven(5)).to.be["false"];
   });
 });
-
-describe('num even test', function() {
-  it('should return true even when num is even', function() {
-    isEven(4).should.be["true"];
-  });
-  return it('should return false even when num is not even', function() {
-    expect(isEven(5)).to.be["false"];
-  });
-});

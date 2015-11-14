@@ -10,7 +10,7 @@ describe 'posting jobs', ->
 	  'liked': [1,3]
 	}
   
-  it 'should call /api/jobs with job data', inject(($httpBackend, products) ->
+  it 'should call /api/jobs with job services', inject(($httpBackend, products) ->
     $httpBackend.whenPOST('/api/products', (data) ->
       postRequestProduct = JSON.parse(data)
       expect(postRequestProduct).to.not.be.empty

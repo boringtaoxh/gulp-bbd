@@ -3,7 +3,7 @@
 describe 'service', ->
   beforeEach module('app')
 
-  it 'should return data', inject (services) ->
+  it 'should return services', inject (services) ->
     data = services.data()
     expect(data.length).to.be.equal(2)
     expect(data).to.contain({
