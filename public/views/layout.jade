@@ -3,6 +3,17 @@ html(ng-app='app')
     link(rel='stylesheet', type='text/css', href='/assets/styles/styles.css')
   body(ng-controller='tdd')
     h1 welcome {{title}}
+    form(ng-submit='submit')
+      .form-group
+        input.form-control(placeholder='title')
+      .form-group
+        input.form-control(placeholder='designer')
+      .form-group
+        button.btn.btn-primary(type='submit') Post
+    div
+      input(type='text' ng-model='emcee')
+      br
+      span {{emcee}}
     #list(ng-repeat='product in products')
       li {{product.title}}
     script(src='/assets/scripts/vendor.js')

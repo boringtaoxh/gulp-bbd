@@ -4,14 +4,12 @@ describe('controller', function() {
   $controlleContructor = scope = {};
   beforeEach(module('app'));
   beforeEach(inject(function($controller, $rootScope) {
-    $controlleContructor = $controller;
-    return scope = $rootScope.$new();
-  }));
-  return it('should test the controller', function() {
-    var ctrl;
-    ctrl = $controlleContructor('controller', {
+    scope = $rootScope.$new();
+    return $controller('controller', {
       $scope: scope
     });
+  }));
+  return it('should test the controller', function() {
     return expect(scope.title).to.be.equal('TDD');
   });
 });

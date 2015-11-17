@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp        = require('gulp'),
+    $           = require('gulp-load-plugins')(),
     concat      = require('gulp-concat'),
     /* css */
     stylus      = require('gulp-stylus'),
@@ -58,6 +59,30 @@ gulp.task('test', function() {
 });
 
 gulp.task('assets', ['styles', 'public', 'server', 'test']);
+
+/* e2e test*/
+/*gulp.task('webdriver_update', $.protractor.webdriver_update);
+gulp.task('connect', function () {
+  var connect = require('connect');
+  var app = connect().use(connect.static('src'));
+  $.server = require('http').createServer(app).listen(8000);
+});
+gulp.task('karma', function (done) {
+    var karma = require('karma').server;
+    var karmaConf = require('./karma.conf.js')();
+    karma.start(karmaConf, done);
+});
+gulp.task('e2e', ['connect', 'webdriver_update'], function (done) {
+  gulp.src(['test/e2e/!*.js'])
+    .pipe($.protractor.protractor({
+      configFile: './protractor.conf.js',
+    }))
+    .on('end', function () {
+      $.server.close();
+        done();
+    });
+});
+gulp.task('testing', ['webdriver_update', 'connect', 'karma', 'e2e']);*/
 
 /* server */
 var paths = {

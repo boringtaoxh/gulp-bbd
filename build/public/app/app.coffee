@@ -2,6 +2,7 @@ app = angular.module 'app', ['ngResource']
 
 angular.module('app').controller 'tdd', ($scope, $resource, products) ->
   $scope.title = 'TDD'
+  $scope.text = 'text'
 
   $scope.products = $resource('/api/products').query()
 
