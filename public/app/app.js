@@ -4,7 +4,6 @@ app = angular.module('app', ['ngResource']);
 
 angular.module('app').controller('tdd', function($scope, $resource, products) {
   $scope.title = 'TDD';
-  $scope.text = 'text';
   $scope.products = $resource('/api/products').query();
   products.save({
     'title': 'C# for Sociopaths',

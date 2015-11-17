@@ -15,7 +15,8 @@ html(ng-app='app')
       br
       span {{emcee}}
     #list(ng-repeat='product in products')
-      li {{product.title}}
+      li
+        a(href='#') {{product.title}}
     script(src='/assets/scripts/vendor.js')
     script(src='/app/app.js')
     script(src='/app/products.js')
