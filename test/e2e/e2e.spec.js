@@ -30,3 +30,17 @@ describe('list details', function() {
     });
   });
 });
+
+describe('route testing', function() {
+  beforeEach(function() {
+    return browser.get('http://localhost:3000/');
+  });
+  it('should go to the home page', function() {
+    return expect(browser.getLocationAbsUrl()).toContain('http://localhost:3000/');
+  });
+  it('should show a load button on home page', function() {
+    var button;
+    button = element(By.buttonText('Post'));
+    return expect(button.isPresent()).toBeTruthy();
+  });
+});

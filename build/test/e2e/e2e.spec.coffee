@@ -27,3 +27,12 @@ describe 'list details', ->
       return
     return
   return
+describe 'route testing', ->
+  beforeEach ->
+    browser.get 'http://localhost:3000/'
+  it 'should go to the home page', ->
+    expect(browser.getLocationAbsUrl()).toContain('http://localhost:3000/');
+  it 'should show a load button on home page', ->
+    button = element(By.buttonText('Post'))
+    expect(button.isPresent()).toBeTruthy()
+  return
