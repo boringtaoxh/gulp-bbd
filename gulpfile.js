@@ -1,8 +1,6 @@
 'use strict';
 
 var gulp        = require('gulp'),
-    $           = require('gulp-load-plugins')(),
-    protractor  = require('gulp-protractor'),
     concat      = require('gulp-concat'),
     /* css */
     stylus      = require('gulp-stylus'),

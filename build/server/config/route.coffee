@@ -3,10 +3,10 @@ Product = mongoose.model 'Product'
 productsData = require('../services/products')
 
 module.exports = (app) ->
-  app.get '/api/products', (req, res) ->
+  ###app.get '/api/products', (req, res) ->
     productsData.findProducts().then (collection) ->
       res.send collection
-    return
+    return###
   app.get '*', (req, res) ->
     res.render 'layout'
     return
