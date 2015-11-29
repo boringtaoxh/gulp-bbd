@@ -4,6 +4,7 @@ app = angular.module('app', ['ngResource']);
 
 angular.module('app').controller('tdd', function($scope, $resource, products, services) {
   $scope.title = 'TDD';
+  $scope.artist = 'TDD';
   $scope.products = $resource('/api/products').query();
   console.log(services.data());
   products.save({

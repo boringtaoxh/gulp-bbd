@@ -1,6 +1,6 @@
 'use strict'
 
-describe 'text input', ->
+###describe 'text input', ->
   it 'should bind to input', ->
     browser.get 'http://localhost:3000/'
     emceeInput = element(By.model('emcee'))
@@ -35,4 +35,4 @@ describe 'route testing', ->
   it 'should show a load button on home page', ->
     button = element(By.buttonText('Post'))
     expect(button.isPresent()).toBeTruthy()
-  return
+  return###

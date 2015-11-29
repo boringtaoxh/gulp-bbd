@@ -8,3 +8,12 @@ angular.module('app').directive('emcee', function() {
     }
   };
 });
+
+angular.module('app').directive('writers', function() {
+  return {
+    restrict: 'E',
+    link: function(scope, element) {
+      element.text('Graffiti artist: ' + scope.artist);
+    }
+  };
+});

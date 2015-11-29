@@ -5,3 +5,9 @@ angular.module('app').directive 'emcee', ->
       element.text 'Step up ' + scope.emcee + '!'
       return
     return
+
+angular.module('app').directive 'writers', ->
+  restrict: 'E'
+  link: (scope, element) ->
+    element.text 'Graffiti artist: ' + scope.artist
+    return
