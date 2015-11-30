@@ -10,3 +10,5 @@ vendor
 ### Gulp ###
 public/assets/css
 public/assets/js
+
+.idea/workspace.xml
